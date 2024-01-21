@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destinos de Viaje</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0; /* Color neutral al inicio */
+            transition: background-color 0.5s ease;
+        }
+
+        #destinos-carousel {
+            display: flex;
+            overflow: hidden;
+            width: 300px;
+            margin: 20px auto;
+        }
+
+        .destino {
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .destino:hover {
+            background-color: #ddd; /* Color de fondo al pasar el ratón */
+        }
+
+        #playa-btn, #montaña-btn, #ciudad-btn {
+            background-color: #ccc; /* Color de fondo de los botones */
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="a">
+
+    <div id="destinos-carousel">
+        <div class="destino" onclick="cambiarColor('#4CAF50')">
+            <h2>Playa Paradisíaca</h2>
+            <p>Actividades: Natación, Buceo, Relajación</p>
+        </div>
+        <div class="destino" onclick="cambiarColor('#2196F3')">
+            <h2>Montañas Majestuosas</h2>
+            <p>Actividades: Senderismo, Esquí, Observación de la naturaleza</p>
+        </div>
+        <div class="destino" onclick="cambiarColor('#FF9800')">
+            <h2>Ciudad Moderna</h2>
+            <p>Actividades: Turismo cultural, Compras, Gastronomía</p>
+        </div>
+    </div>
+
+    <button id="playa-btn" onclick="cambiarColor('#4CAF50')">Playa</button>
+    <button id="montaña-btn" onclick="cambiarColor('#2196F3')">Montaña</button>
+    <button id="ciudad-btn" onclick="cambiarColor('#FF9800')">Ciudad</button>
+
+    <script>
+        function cambiarColor(color) {
+            document.body.style.backgroundColor = color;
+        }
+    </script>
+
+</body>
+</html>
