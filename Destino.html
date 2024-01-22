@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesD.css">
+    <title>Destino</title>
+</head>
+<body>
+
+    <header>
+        <nav class="nav">
+            <input type="checkbox" id="toggle">
+    
+            <div class="titulo">destinos</div>
+            <ul class="list">
+               <li><a href="#">Login</a></li> 
+               <li><a href="Home.html">Destinos</a></li>
+            </ul>
+    
+            <label for="toggle" class="icon-bars">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </label>
+    
+          </nav>
+    </header>
+
+    <section class="destino-container ciudad">
+        <img src="imagen_destino.jpg" alt="Imagen del destino">
+        <div class="info">
+            <!-- Aquí es donde se mostrará el nombre del destino -->
+            <h1 id="nombre-destino">Nombre del Destino</h1>
+            <p class="descripcion">Una breve descripción del destino...</p>
+            <p class="tipo">Tipo de destino: Playa</p>
+            <p class="actividades">Actividades: Actividad 1, Actividad 2, Actividad 3</p>
+            <p class="precio">Precio: 0.00 Colones</p>
+            <a href="#">Reservar</a>
+        </div>
+    </section>
+
+    <script>
+        // Función para obtener el parámetro "nombreDestino" de la URL
+        function obtenerParametro(nombre) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(nombre);
+        }
+
+        // Obtener el valor del parámetro "nombreDestino"
+        const nombreDestino = obtenerParametro("nombreDestino");
+
+        // Mostrar el nombre del destino en el título
+        const tituloDestino = document.getElementById("nombre-destino");
+        tituloDestino.textContent = nombreDestino;
+    </script>
+
+</body>
+</html>
