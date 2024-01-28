@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesH.css">
+    <title>Inicio</title>
+</head>
+<body>
+
+  <nav class="nav">
+    <input type="checkbox" id="toggle">
+
+    <div class="titulo">destinos</div>
+    <ul class="list">
+       <li><a href="index.html">Login</a></li> 
+       <li><a href="Home.html">Destinos</a></li>
+    </ul>
+
+    <label for="toggle" class="icon-bars">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </label>
+
+  </nav>
+
+    <section class="recommendation">
+        <h2>Recomendación del día</h2>
+        <div class="recommendation-container">
+            <img src="img/recommendation.jpg" alt="Recomendación">
+            
+            <!-- Añade un ID al elemento h3 para poder obtener su texto con JavaScript -->
+            <h3 class="Nombre" id="nombreDestino">Playa Bananito</h3>
+            
+            <p>Descripción del destino</p>
+            <ul>
+                <li>Actividad 1</li>
+                <li>Actividad 2</li>
+                <li>Actividad 3</li>
+            </ul>
+            
+            <!-- Cambia el enlace por un botón con el evento onclick -->
+            <button onclick="enviarTextoDestino()">Información detallada</button>
+        </div>
+    </section>
+
+    <script>
+        // Función para obtener el texto dentro del elemento h3
+        function obtenerTextoDestino() {
+            return document.getElementById("nombreDestino").textContent;
+        }
+
+        // Función para modificar la URL y pasar el texto como parámetro
+        function enviarTextoDestino() {
+            const textoDestino = obtenerTextoDestino();
+            window.location.href = "Destino.html?nombreDestino=" + encodeURIComponent(textoDestino);
+        }
+    </script>
+
+</body>
+</html>
