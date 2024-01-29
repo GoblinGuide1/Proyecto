@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($result->num_rows > 0) {
         // Las credenciales son válidas
-        header("Location: P.html");
+        header("Location: Home.php");
         exit();
         // Puedes redirigir al usuario a otra página aquí
     } else {
