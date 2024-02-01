@@ -1,3 +1,9 @@
+<?php
+
+include("Conexion.php");
+include("Controlador.php");
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,10 +13,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="PI">
-<?php
-include("Conexion.php");
-include("Controlador.php");
-?>
+
     <div class="Formulario">
 <h1>Inicio de sesión</h1>
 <form method="post">
@@ -28,9 +31,13 @@ include("Controlador.php");
 
 <div class="registrarse">
 
-    quiere <a href="registro.php">registrarse</a>
+    Quiere <a href="registro.php">registrarse</a>
 
-    <?php if (!empty($mensaje) && isset($_POST["NombeU"]) && isset($_POST["password"])) : ?>
+    <?php if (!empty($mensaje) && isset($_POST["NombeU"]) && isset($_POST["password"])) : 
+    
+        
+        ?>
+        
             <div class="mensaje-error">
                 <?php echo $mensaje; ?>
                 <?php unset($_SESSION["mensaje"]); ?>

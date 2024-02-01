@@ -7,11 +7,13 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body class="PI">
+        
 <?php
 include("Conexion.php");
 include("controlesRegistro.php");
 ?>
-        <div class="Formulario">
+
+    <div class="Formulario">
     <h1>Registro de usuario</h1>
     <form method="post">
     <div class="username">

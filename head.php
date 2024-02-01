@@ -14,11 +14,11 @@
     <nav class="nav1">
         <input type="checkbox" id="toggle">
     
-        <div class="titulo">destinos</div>
+        <div class="titulo">Turisticos</div>
         <ul class="list"> 
            <li><a href="index.php">Login</a></li> 
            <li><a href="Home.php">Destinos</a></li>
-           <li class="sig"><?php echo htmlentities($_SESSION['login']);?></li> 
+           <li class="#"><?php echo htmlentities($_SESSION['login']);?></li> 
 
     
         </ul>

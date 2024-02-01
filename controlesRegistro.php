@@ -35,6 +35,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             } else {
                 $mensaje =  "Error al registrar usuario: " . $conn->error;
             }
+
+                
+// Inserción en la tabla de preferencias
+$sql_insert_preference = "INSERT INTO preferencia (id,idU, ciudad, playa, montana)
+VALUES (' ','$username', 0, 0, 0)";
+
+if ($conn->query($sql_insert_preference) === TRUE) {
+} else {
+}
+
+
+            
         }
     } else {
         $mensaje =  "Por favor, complete todos los campos.";
@@ -43,5 +55,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 // Cerrar la conexión
 $conn->close();
-?>
 ?>
