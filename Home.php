@@ -77,16 +77,10 @@ if(isset($_GET['filtroDestino'])) {
 </form>
 
 <?php
-
+// Obtener el tipo de destino con el número mayor de preferencias
+$user = $_SESSION['login']; 
 
 // Obtener el tipo de destino con el número mayor de preferencias
-$user = $_SESSION['login'];
-
-$sql = "INSERT INTO preferencia (idU, playa, montana, ciudad)
-    SELECT $user, 0, 0, 0 if not exists (SELECT * FROM preferencia WHERE idU = $user)";
-$query = $dbh->prepare($sql);
-$query->execute();
-
 $sql = "SELECT 
             CASE 
                 WHEN playa >= montana AND playa >= ciudad THEN 'playa'
@@ -94,22 +88,31 @@ $sql = "SELECT
                 ELSE 'ciudad'
             END AS mostPreferredType
         FROM preferencia
-        WHERE idU = $user"; 
-        
+        WHERE idU = '$user'"; 
+
 $query = $dbh->prepare($sql);
 $query->execute();
+
 $result = $query->fetch(PDO::FETCH_ASSOC);
 
-// Corregir la asignación del tipo de destino más preferido
-$mostPreferredType = $result['mostPreferredType'];
+if ($result) {
+    // Corregir la asignación del tipo de destino más preferido
+    $mostPreferredType = $result['mostPreferredType'];
 
-// Obtener un destino aleatorio del tipo de destino más preferido
-$sql = "SELECT * FROM tbltourpackages WHERE PackageType = :mostPreferredType ORDER BY RAND() LIMIT 1";
-$query = $dbh->prepare($sql);
-$query->bindParam(':mostPreferredType', $mostPreferredType, PDO::PARAM_STR);
-$query->execute();
-$randomDestination = $query->fetch(PDO::FETCH_ASSOC);
-?> 
+    // Obtener un destino aleatorio del tipo de destino más preferido
+    $sql = "SELECT * FROM tbltourpackages WHERE PackageType = :mostPreferredType ORDER BY RAND() LIMIT 1";
+    $query = $dbh->prepare($sql);
+    $query->bindParam(':mostPreferredType', $mostPreferredType, PDO::PARAM_STR);
+    $query->execute();
+    $randomDestination = $query->fetch(PDO::FETCH_ASSOC);
+
+    // Continuar con el resto del código...
+} else {
+    // Manejar el caso en el que no se encuentran preferencias para el usuario
+    echo "No se encontraron preferencias para el usuario.";
+}
+?>
+
 
 <div class="rom-btm" id="recomendacion">
     <h3>Recomendadión</h3>
