@@ -1,19 +1,18 @@
 -- phpMyAdmin SQL Dump
 -- version 5.2.1
--- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 21-01-2024 a las 23:37:45
--- Versión del servidor: 8.0.31
--- Versión de PHP: 8.2.0
+-- Tiempo de generación: 01-02-2024 a las 01:45:09
+-- Versión del servidor: 8.2.0
+-- Versión de PHP: 8.2.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;  
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
@@ -21,6 +20,66 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `turisticos`
 --
+CREATE DATABASE IF NOT EXISTS `turisticos` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+USE `turisticos`;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `preferencia`
+--
+
+DROP TABLE IF EXISTS `preferencia`;
+CREATE TABLE IF NOT EXISTS `preferencia` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `idU` text NOT NULL,
+  `ciudad` int DEFAULT NULL,
+  `playa` int DEFAULT NULL,
+  `montana` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Volcado de datos para la tabla `preferencia`
+--
+
+INSERT INTO `preferencia` (`id`, `idU`, `ciudad`, `playa`, `montana`) VALUES
+(1, 'Gabriel', 0, 0, 10),
+(2, 'Jorge', 0, 10, 0),
+(3, 'Maximo', 10, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tbltourpackages`
+--
+
+DROP TABLE IF EXISTS `tbltourpackages`;
+CREATE TABLE IF NOT EXISTS `tbltourpackages` (
+  `PackageId` int NOT NULL AUTO_INCREMENT,
+  `PackageName` varchar(200) DEFAULT NULL,
+  `PackageType` varchar(150) DEFAULT NULL,
+  `PackageLocation` varchar(100) DEFAULT NULL,
+  `PackagePrice` int DEFAULT NULL,
+  `PackageFetures` varchar(255) DEFAULT NULL,
+  `PackageDetails` mediumtext,
+  `PackageImage` varchar(100) DEFAULT NULL,
+  `Creationdate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `UpdationDate` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`PackageId`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `tbltourpackages`
+--
+
+INSERT INTO `tbltourpackages` (`PackageId`, `PackageName`, `PackageType`, `PackageLocation`, `PackagePrice`, `PackageFetures`, `PackageDetails`, `PackageImage`, `Creationdate`, `UpdationDate`) VALUES
+(1, 'Swiss Paris Delight Premium 2023 (paquete grupal).', 'playa', 'París y Suiza', 6000, 'Billete de avión de ida y vuelta en clase económica válido durante las vacaciones - Tasas de aeropuerto - Alojamiento por 3 noches en París y 3 noches en la pintoresca Suiza - Disfrute de desayunos continentales todas las mañanas.', 'Elija estas vacaciones para unas vacaciones relajantes en París y Suiza. Su recorrido comienza desde París. Disfrute de una excursión a atracciones populares como la icónica Torre Eiffel. Después de experimentar la hermosa ciudad, pasarás por campos de mostaza a través de Borgoña para llegar a Suiza. Una vez allí, puedes optar por un tour a Interlaken y luego a las cataratas Trummelbach. Una parada fotográfica en el lago de Zúrich y un viaje en teleférico al monte Titlis son los principales momentos destacados de las vacaciones.', 'paris.jpg', '2023-07-19 06:21:58', '2024-01-31 22:26:16'),
+(2, 'Vacaciones en Bután - Especial Thimphu y Paro', 'ciudad', 'Bután', 3000, 'Wi-Fi gratuito, desayuno gratuito, servicio gratuito de recogida y entrega', 'Visita al Monasterio del Nido del Tigre | Servicios complementarios de un Guía Profesional.', 'BHUTAN-THIMPU-PARO-PUNAKHA-TOUR-6N-7D.jpeg', '2023-07-26 06:37:40', '2024-01-31 20:10:07'),
+(3, 'Especial Alma Gemela Bali - 7 Noches', 'montana', 'Indonesia(Bali)', 5000, 'Servicio gratuito de recogida y entrega, Wi-Fi gratuito, Guía profesional gratuito', 'Traslados al aeropuerto en coche privado | Visitas turísticas populares incluidas | Adecuado para parejas y viajeros con poco presupuesto.', 'bali.jpg', '2023-07-19 06:41:07', '2024-01-31 22:32:53'),
+(4, 'Kerala: un paraíso para los amantes: valor añadido', 'playa', 'Kerala', 1000, 'Wi-Fi gratuito, servicio gratuito de recogida y entrega,', 'Visita la presa Matupetty, la plantación de té y un jardín de especias | Ver la puesta de sol en Kanyakumari | Coche con aire acondicionado a disposición durante 2 horas adicionales (una vez por ciudad)', 'kerala.jpg', '2023-07-28 06:45:58', '2024-01-31 22:33:31'),
+(5, 'Viaje corto a Dubai', 'ciudad', 'Dubai', 4500, 'Servicio gratuito de recogida y entrega, Wi-Fi gratuito, Desayuno gratuito', 'Un paquete de vacaciones para toda la familia.', 'dubai.jpg', '2023-07-31 06:49:13', '2024-01-31 22:34:02'),
+(10, 'Cerro chirripó', 'montana', 'Costa Rica', 700, 'Guía profesional gratuito', 'Recorrido turístico por el Cerro Chirrió de costa rica ', 'cerro-chirripo.jpg', '2024-01-31 22:42:47', NULL);
 
 -- --------------------------------------------------------
 
@@ -50,3 +109,4 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+ 
