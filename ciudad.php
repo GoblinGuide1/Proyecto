@@ -21,8 +21,14 @@ include('head.php');
 <link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
 <script src="js/wow.min.js"></script>
 	<script>
-		 new WOW().init();
+		new WOW().init();
 	</script>
+    <style>
+        body {
+            background-color: #ABB2B9 ;
+             /* Cambiar el color de fondo a gris claro */
+        }
+        </style>
     <title>Inicio</title>
 	
 </head>

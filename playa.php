@@ -23,6 +23,12 @@ include('head.php');
 	<script>
 		 new WOW().init();
 	</script>
+    <style>
+        body {
+            background-color: #AED6F1; 
+             /* Cambiar el color de fondo a gris claro */
+        }
+        </style>
     <title>Inicio</title>
 	
 </head>

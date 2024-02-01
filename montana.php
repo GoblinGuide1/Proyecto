@@ -25,6 +25,12 @@ include('head.php');
 	</script>
     <title>Inicio</title>
 	
+    <style>
+        body {
+            background-color: #0d391f  ; 
+            /* Cambiar el color de fondo a gris claro */
+        }
+        </style> 
 </head>
 <body>
 
